@@ -7,7 +7,7 @@ export default function Contact() {
             Get In <span className="text-primary-600">Touch</span>
           </h1>
           <p className="text-xl text-secondary-600 max-w-3xl mx-auto">
-            Ready to transform your business? We'd love to hear from you. Contact us today to discuss your project and see how we can help.
+            Ready to transform your business? We&apos;d love to hear from you. Contact us today to discuss your project and see how we can help.
           </p>
         </div>
 
