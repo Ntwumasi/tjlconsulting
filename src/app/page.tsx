@@ -1,21 +1,64 @@
-export default function Home() {
+import { getHomepage, getServices } from '../../lib/sanity.client'
+import { Homepage, Service } from '../../lib/sanity.types'
+
+export default async function Home() {
+  // Fallback data in case Sanity is not configured yet
+  const fallbackHomepage: Partial<Homepage> = {
+    heroTitle: 'Grow Smarter, Not Just Bigger',
+    heroSubtitle: 'TJL Consulting helps service-based businesses attract more clients, increase customer value, and scale profitably through marketing, operations, and AI-powered solutions.',
+    primaryButtonText: 'Free Consultation',
+    secondaryButtonText: 'View Case Studies',
+    servicesTitle: 'Our Core Services',
+    servicesSubtitle: 'We combine marketing, operations, and AI-powered solutions to deliver measurable results for service businesses',
+    whoWeServeTitle: 'Who We Serve',
+    whoWeServeSubtitle: 'We specialize in helping small to mid-sized service businesses achieve sustainable growth through proven systems and strategies.',
+    targetMarkets: [
+      'Law firms and legal practices',
+      'Fitness centers and wellness businesses',
+      'Medical practices and healthcare providers',
+      'Real estate agencies',
+      'Marketing and consulting firms'
+    ],
+    ctaTitle: 'Ready to Grow Smarter?',
+    ctaSubtitle: 'Join successful service businesses that have transformed their growth with our proven systems',
+    ctaButtonText: 'Schedule Free Consultation'
+  }
+
+  let homepage: Homepage | null = null
+  let services: Service[] = []
+
+  try {
+    homepage = await getHomepage()
+    services = await getServices()
+  } catch (error) {
+    console.log('Sanity not configured yet, using fallback data')
+  }
+
+  // Use Sanity data if available, otherwise use fallback
+  const data = homepage || fallbackHomepage
   return (
     <div className="bg-white">
       <section className="relative bg-gradient-to-br from-primary-50 to-secondary-100 py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold text-secondary-900 mb-6">
-              Grow Smarter, <span className="text-primary-600">Not Just Bigger</span>
+              {data.heroTitle?.includes('Not Just Bigger') ? (
+                <>
+                  Grow Smarter, <span className="text-primary-600">Not Just Bigger</span>
+                </>
+              ) : (
+                data.heroTitle || 'Grow Smarter, Not Just Bigger'
+              )}
             </h1>
             <p className="text-xl text-secondary-600 mb-8 max-w-4xl mx-auto">
-              TJL Consulting helps service-based businesses attract more clients, increase customer value, and scale profitably through marketing, operations, and AI-powered solutions.
+              {data.heroSubtitle}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button className="bg-primary-600 text-white px-8 py-3 rounded-lg hover:bg-primary-700 transition-colors font-semibold">
-                Free Consultation
+                {data.primaryButtonText || 'Free Consultation'}
               </button>
               <button className="border border-primary-600 text-primary-600 px-8 py-3 rounded-lg hover:bg-primary-50 transition-colors font-semibold">
-                View Case Studies
+                {data.secondaryButtonText || 'View Case Studies'}
               </button>
             </div>
           </div>
@@ -26,10 +69,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-secondary-900 mb-4">
-              Our Core Services
+              {data.servicesTitle || 'Our Core Services'}
             </h2>
             <p className="text-xl text-secondary-600 max-w-3xl mx-auto">
-              We combine marketing, operations, and AI-powered solutions to deliver measurable results for service businesses
+              {data.servicesSubtitle}
             </p>
           </div>
           
