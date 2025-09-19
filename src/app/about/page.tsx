@@ -11,157 +11,125 @@ export default function About() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-20">
-          <div>
-            <h2 className="text-3xl font-bold text-secondary-900 mb-6">Our Mission & Vision</h2>
-            <div className="mb-6">
-              <h3 className="text-xl font-semibold text-secondary-800 mb-3">Mission</h3>
-              <p className="text-secondary-600 mb-4">
-                Empower service businesses to grow smarter, not just bigger.
+        <div className="mb-20">
+          <h2 className="text-3xl font-bold text-secondary-900 mb-12 text-center">Meet the Team</h2>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div className="bg-secondary-50 rounded-lg p-8">
+              <h3 className="text-2xl font-bold text-secondary-900 mb-2">Tyler</h3>
+              <p className="text-lg text-primary-600 font-semibold mb-4">Marketing & Operations Expert</p>
+              <p className="text-secondary-600 leading-relaxed">
+                I&apos;m a marketer-operator who helps service based businesses scale using modern scaling, marketing, and AI solutions. I built TJL Training from the ground up—growing to hundreds of clients, two physical locations, and a 100k+ social audience. That journey taught me the full stack of scaling: positioning your service, offers that convert, content, client acquisition that pays for itself, and the unsexy systems that make growth sustainable.
+              </p>
+              <p className="text-secondary-600 leading-relaxed mt-4">
+                I then helped other basketball trainers replicate those results—running targeted ad campaigns, crafting offers that sell, and building simple pipelines that turn attention into bookings. Today I apply the same playbook to service-based businesses of all kinds, delivering reliable growth.
               </p>
             </div>
-            <div>
-              <h3 className="text-xl font-semibold text-secondary-800 mb-3">Vision</h3>
-              <p className="text-secondary-600">
-                To become a trusted growth partner for small and mid-sized service businesses, recognized for innovation, measurable ROI, and practical scaling systems.
+
+            <div className="bg-secondary-50 rounded-lg p-8">
+              <h3 className="text-2xl font-bold text-secondary-900 mb-2">Nokio</h3>
+              <p className="text-lg text-primary-600 font-semibold mb-4">AI & Tech Expertise</p>
+              <p className="text-secondary-600 leading-relaxed">
+                I&apos;m a cloud and software engineer specializing in building AI-powered solutions and scalable digital systems. With a background in AWS, Next.js, and automation, I design the tech frameworks that turn marketing strategies into reliable growth engines. From streamlining operations with AI to building secure, high-performance websites and data systems, I make sure businesses can scale with confidence and efficiency.
               </p>
             </div>
           </div>
-          
-          <div className="bg-secondary-50 rounded-lg p-8">
-            <h3 className="text-2xl font-bold text-secondary-900 mb-6">Our Competitive Edge</h3>
-            <div className="space-y-4">
-              <div className="flex items-start">
-                <div className="w-6 h-6 bg-primary-600 rounded-full flex items-center justify-center mr-4 mt-1">
-                  <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+        </div>
+
+        <div className="mb-20">
+          <h2 className="text-3xl font-bold text-secondary-900 mb-12 text-center">Our Competitive Edge</h2>
+          <div className="bg-secondary-50 rounded-lg p-12">
+            <h3 className="text-2xl font-bold text-secondary-900 mb-6">Holistic Approach</h3>
+            <p className="text-secondary-600 text-lg leading-relaxed">
+              We take a full-stack approach to business growth—blending product positioning, client acquisition, and customer journey design with seamless back-end tech optimization. From shaping an irresistible offer and refining the product itself to building systems that attract, convert, and retain clients, we cover every layer of the growth engine. The result is a reliable, scalable framework where marketing, operations, and technology all work together to drive sustainable success.
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+              <div className="text-center">
+                <div className="w-16 h-16 bg-primary-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                  <svg className="w-8 h-8 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <div>
-                  <h4 className="font-semibold text-secondary-900">Holistic Approach</h4>
-                  <p className="text-secondary-600">We combine marketing, operations, and product improvement for complete growth solutions</p>
-                </div>
+                <h4 className="font-semibold text-secondary-900 mb-2">Full-Stack Approach</h4>
+                <p className="text-secondary-600 text-sm">Marketing, operations, and technology working in harmony</p>
               </div>
-              
-              <div className="flex items-start">
-                <div className="w-6 h-6 bg-primary-600 rounded-full flex items-center justify-center mr-4 mt-1">
-                  <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+
+              <div className="text-center">
+                <div className="w-16 h-16 bg-primary-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                  <svg className="w-8 h-8 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </div>
-                <div>
-                  <h4 className="font-semibold text-secondary-900">AI-Driven Efficiency</h4>
-                  <p className="text-secondary-600">Modern AI tools paired with traditional consulting expertise</p>
-                </div>
+                <h4 className="font-semibold text-secondary-900 mb-2">AI-Powered Solutions</h4>
+                <p className="text-secondary-600 text-sm">Modern tech for efficient scaling and automation</p>
               </div>
-              
-              <div className="flex items-start">
-                <div className="w-6 h-6 bg-primary-600 rounded-full flex items-center justify-center mr-4 mt-1">
-                  <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+
+              <div className="text-center">
+                <div className="w-16 h-16 bg-primary-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                  <svg className="w-8 h-8 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                   </svg>
                 </div>
-                <div>
-                  <h4 className="font-semibold text-secondary-900">Service Business Specialists</h4>
-                  <p className="text-secondary-600">Deep expertise in service industries with proven frameworks</p>
-                </div>
-              </div>
-              
-              <div className="flex items-start">
-                <div className="w-6 h-6 bg-primary-600 rounded-full flex items-center justify-center mr-4 mt-1">
-                  <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-secondary-900">Data-Driven Results</h4>
-                  <p className="text-secondary-600">Strategies backed by actionable frameworks and measurable outcomes</p>
-                </div>
+                <h4 className="font-semibold text-secondary-900 mb-2">Proven Results</h4>
+                <p className="text-secondary-600 text-sm">Systems tested and refined through real business growth</p>
               </div>
             </div>
           </div>
         </div>
 
         <div className="mb-20">
-          <h2 className="text-3xl font-bold text-secondary-900 mb-12 text-center">Our Target Markets</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-white border border-secondary-200 rounded-lg p-8">
-              <h3 className="text-xl font-semibold text-secondary-900 mb-4">Primary Market</h3>
-              <p className="text-secondary-600 mb-4">Small to mid-sized service businesses ready to scale:</p>
-              <ul className="space-y-2 text-secondary-600">
-                <li className="flex items-center">
-                  <svg className="w-4 h-4 text-primary-600 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
-                  Law firms and legal practices
-                </li>
-                <li className="flex items-center">
-                  <svg className="w-4 h-4 text-primary-600 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
-                  Fitness centers and wellness businesses
-                </li>
-                <li className="flex items-center">
-                  <svg className="w-4 h-4 text-primary-600 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
-                  Medical practices and healthcare providers
-                </li>
-                <li className="flex items-center">
-                  <svg className="w-4 h-4 text-primary-600 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
-                  Real estate agencies
-                </li>
-                <li className="flex items-center">
-                  <svg className="w-4 h-4 text-primary-600 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
-                  Marketing and consulting firms
-                </li>
-              </ul>
+          <h2 className="text-3xl font-bold text-secondary-900 mb-12 text-center">Who We Serve</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="bg-white border border-secondary-200 rounded-lg p-6 hover:border-primary-500 transition-colors">
+              <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
+                <svg className="w-6 h-6 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
+              </div>
+              <h3 className="text-lg font-semibold text-secondary-900 mb-2">Health & Wellness</h3>
+              <p className="text-secondary-600 text-sm">Fitness centers, wellness practices, and health service providers</p>
             </div>
-            
-            <div className="bg-white border border-secondary-200 rounded-lg p-8">
-              <h3 className="text-xl font-semibold text-secondary-900 mb-4">Secondary Market</h3>
-              <p className="text-secondary-600 mb-4">Startups preparing to scale operations</p>
-              
-              <div className="mt-6">
-                <h4 className="text-lg font-semibold text-secondary-900 mb-3">Geographic Focus</h4>
-                <p className="text-secondary-600 mb-2">U.S.-based initially</p>
-                <p className="text-secondary-600">Expanding internationally as systems scale</p>
+
+            <div className="bg-white border border-secondary-200 rounded-lg p-6 hover:border-primary-500 transition-colors">
+              <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
+                <svg className="w-6 h-6 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                </svg>
               </div>
-              
-              <div className="mt-6">
-                <h4 className="text-lg font-semibold text-secondary-900 mb-3">Growth Timeline</h4>
-                <ul className="space-y-2 text-secondary-600 text-sm">
-                  <li><strong>Year 1:</strong> Build case studies, secure 5-10 retainer clients</li>
-                  <li><strong>Years 2-3:</strong> Expand to 30+ clients, hire staff</li>
-                  <li><strong>Years 3-5:</strong> Launch workshops, courses, and subsidiaries</li>
-                </ul>
+              <h3 className="text-lg font-semibold text-secondary-900 mb-2">Home Services</h3>
+              <p className="text-secondary-600 text-sm">Contractors, cleaning services, and home maintenance providers</p>
+            </div>
+
+            <div className="bg-white border border-secondary-200 rounded-lg p-6 hover:border-primary-500 transition-colors">
+              <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
+                <svg className="w-6 h-6 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
               </div>
+              <h3 className="text-lg font-semibold text-secondary-900 mb-2">Event Services</h3>
+              <p className="text-secondary-600 text-sm">Event planning, catering, and entertainment services</p>
+            </div>
+
+            <div className="bg-white border border-secondary-200 rounded-lg p-6 hover:border-primary-500 transition-colors">
+              <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
+                <svg className="w-6 h-6 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                </svg>
+              </div>
+              <h3 className="text-lg font-semibold text-secondary-900 mb-2">Niche Services</h3>
+              <p className="text-secondary-600 text-sm">High-skilled specialized services and consultancies</p>
             </div>
           </div>
         </div>
 
-        <div className="bg-secondary-50 rounded-lg p-12 text-center">
-          <h2 className="text-3xl font-bold text-secondary-900 mb-4">
-            Ready to Grow Smarter?
+        <div className="bg-primary-600 text-white rounded-lg p-12 text-center">
+          <h2 className="text-3xl font-bold mb-4">
+            Ready to Scale With Confidence?
           </h2>
-          <p className="text-xl text-secondary-600 mb-6 max-w-2xl mx-auto">
+          <p className="text-xl mb-6 max-w-2xl mx-auto">
             Join successful service businesses that have transformed their growth with our proven systems and strategies.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 max-w-md mx-auto">
-            <div className="bg-white rounded-lg p-4">
-              <div className="text-2xl font-bold text-primary-600 mb-1">$200K-$300K</div>
-              <div className="text-sm text-secondary-600">Year 1 Revenue Goal</div>
-            </div>
-            <div className="bg-white rounded-lg p-4">
-              <div className="text-2xl font-bold text-primary-600 mb-1">35-40%</div>
-              <div className="text-sm text-secondary-600">Target Profit Margin</div>
-            </div>
-          </div>
-          <button className="bg-primary-600 text-white px-8 py-3 rounded-lg hover:bg-primary-700 transition-colors font-semibold">
+          <button className="bg-white text-primary-600 px-8 py-3 rounded-lg hover:bg-secondary-50 transition-colors font-semibold">
             Schedule Free Consultation
           </button>
         </div>
