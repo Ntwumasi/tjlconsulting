@@ -1,195 +1,222 @@
-import { getHomepage, getServices } from '../../lib/sanity.client'
-import { Homepage, Service } from '../../lib/sanity.types'
+'use client';
 
-export default async function Home() {
-  // Fallback data in case Sanity is not configured yet
-  const fallbackHomepage: Partial<Homepage> = {
-    heroTitle: 'Scale With Confidence',
-    heroSubtitle: 'TJL Business Consulting is a full service-based business that attracts the right clients that convert at a higher rate, and scale profitably through tested marketing, operations, and AI solutions.',
-    primaryButtonText: 'Free Consultation',
-    secondaryButtonText: 'View Case Studies',
-    servicesTitle: 'Our Core Services',
-    servicesSubtitle: 'We combine marketing, operations, and AI-powered solutions to deliver measurable results for service businesses',
-    whoWeServeTitle: 'Who We Serve',
-    whoWeServeSubtitle: 'We specialize in helping service businesses achieve sustainable growth through proven systems and strategies.',
-    targetMarkets: [
-      'Health and wellness businesses',
-      'Home service businesses',
-      'Event services',
-      'High skilled niche services',
-      'And more'
-    ],
-    ctaTitle: 'Ready to Grow Smarter?',
-    ctaSubtitle: 'Join successful service businesses that have transformed their growth with our proven systems',
-    ctaButtonText: 'Schedule Free Consultation'
-  }
+import { motion } from 'framer-motion';
+import { ServiceCard } from '@/components/ui/service-card';
+import { GradientButton } from '@/components/ui/gradient-button';
+import { SectionHeader } from '@/components/ui/section-header';
+import { AnimatedCard } from '@/components/ui/animated-card';
 
-  let homepage: Homepage | null = null
-  let services: Service[] = []
+export default function Home() {
+  const services = [
+    {
+      icon: (
+        <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+        </svg>
+      ),
+      title: 'Client Acquisition',
+      description: 'Social media content, paid advertising and lead generation systems that deliver results.'
+    },
+    {
+      icon: (
+        <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+        </svg>
+      ),
+      title: 'Revenue Optimization',
+      description: 'Customer journey mapping, upsell/cross-sell strategies and retention programs.'
+    },
+    {
+      icon: (
+        <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg>
+      ),
+      title: 'Operations & Scaling',
+      description: 'Growth models, process optimization, SOPs, hiring and training systems.'
+    },
+    {
+      icon: (
+        <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+      ),
+      title: 'Website & AI Implementation',
+      description: 'Website design, AI automation, and efficiency tools to make your work more efficient.'
+    }
+  ];
 
-  try {
-    homepage = await getHomepage()
-    services = await getServices()
-  } catch (error) {
-    console.log('Sanity not configured yet, using fallback data')
-  }
+  const targetMarkets = [
+    'Health and wellness businesses',
+    'Home service businesses',
+    'Event services',
+    'High skilled niche services',
+    'And more'
+  ];
 
-  // Use Sanity data if available, otherwise use fallback
-  const data = homepage || fallbackHomepage
   return (
-    <div className="bg-black">
-      <section className="relative bg-gradient-to-br from-secondary-900 to-black py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              {data.heroTitle || 'Scale With Confidence'}
-            </h1>
-            <p className="text-xl text-gray-300 mb-8 max-w-4xl mx-auto">
-              {data.heroSubtitle}
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="https://calendly.com/tyler-tjltraining/15minutecall" target="_blank" rel="noopener noreferrer" className="bg-primary-600 text-white px-8 py-3 rounded-lg hover:bg-primary-700 transition-colors font-semibold">
-                {data.primaryButtonText || 'Free Consultation'}
-              </a>
-            </div>
-          </div>
+    <div className="bg-black min-h-screen">
+      {/* Hero Section */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-black via-secondary-950 to-black py-32">
+        {/* Animated background elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary-600/10 rounded-full blur-3xl animate-glow" />
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-primary-800/10 rounded-full blur-3xl animate-glow" style={{ animationDelay: '1s' }} />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center"
+          >
+            <motion.h1
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-5xl md:text-7xl font-bold mb-8"
+            >
+              <span className="text-white">Scale With </span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 via-primary-600 to-primary-800">
+                Confidence
+              </span>
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-xl md:text-2xl text-gray-400 mb-12 max-w-4xl mx-auto leading-relaxed"
+            >
+              TJL Business Consulting helps service-based businesses attract the right clients that convert at a higher rate, and scale profitably through tested marketing, operations, and AI solutions.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+            >
+              <GradientButton href="https://calendly.com/tyler-tjltraining/15minutecall">
+                Get Free Consultation
+              </GradientButton>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
-      <section className="py-20 bg-black">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              {data.servicesTitle || 'Our Core Services'}
-            </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              {data.servicesSubtitle}
-            </p>
-          </div>
+      {/* Services Section */}
+      <section className="py-24 bg-black relative">
+        <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-5" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <SectionHeader
+            title="Our Core Services"
+            subtitle="We combine marketing, operations, and AI-powered solutions to deliver measurable results for service businesses"
+          />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center p-8 rounded-lg bg-secondary-900 hover:bg-secondary-800 transition-colors border border-secondary-800">
-              <div className="w-16 h-16 bg-primary-900 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-2">Client Acquisition</h3>
-              <p className="text-gray-300">Social media content, paid advertising and lead generation systems</p>
-            </div>
-
-            <div className="text-center p-8 rounded-lg bg-secondary-900 hover:bg-secondary-800 transition-colors border border-secondary-800">
-              <div className="w-16 h-16 bg-primary-900 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-2">Revenue Optimization</h3>
-              <p className="text-gray-300">Customer journey mapping, upsell/cross-sell and retention strategies</p>
-            </div>
-
-            <div className="text-center p-8 rounded-lg bg-secondary-900 hover:bg-secondary-800 transition-colors border border-secondary-800">
-              <div className="w-16 h-16 bg-primary-900 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-2">Operations and Scaling</h3>
-              <p className="text-gray-300">Growth models, process optimization, SOPs, hiring and training systems</p>
-            </div>
-
-            <div className="text-center p-8 rounded-lg bg-secondary-900 hover:bg-secondary-800 transition-colors border border-secondary-800">
-              <div className="w-16 h-16 bg-primary-900 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-2">Website and AI Implementation</h3>
-              <p className="text-gray-300">Website design, AI automation, and efficiency tools to make your work more efficient</p>
-            </div>
+            {services.map((service, index) => (
+              <ServiceCard
+                key={index}
+                icon={service.icon}
+                title={service.title}
+                description={service.description}
+                delay={index * 0.1}
+              />
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="py-20 bg-secondary-900">
+      {/* Who We Serve Section */}
+      <section className="py-24 bg-gradient-to-b from-black to-secondary-950 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                Who We Serve
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
+                Who We <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-primary-700">Serve</span>
               </h2>
-              <p className="text-xl text-gray-300 mb-6">
+              <p className="text-xl text-gray-400 mb-8 leading-relaxed">
                 We specialize in helping service businesses achieve sustainable growth through proven systems and strategies.
               </p>
-              <ul className="space-y-3 text-gray-300">
-                <li className="flex items-center">
-                  <svg className="w-5 h-5 text-primary-600 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
-                  Health and wellness businesses
-                </li>
-                <li className="flex items-center">
-                  <svg className="w-5 h-5 text-primary-600 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
-                  Home service businesses
-                </li>
-                <li className="flex items-center">
-                  <svg className="w-5 h-5 text-primary-600 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
-                  Event services
-                </li>
-                <li className="flex items-center">
-                  <svg className="w-5 h-5 text-primary-600 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
-                  High skilled niche services
-                </li>
-                <li className="flex items-center">
-                  <svg className="w-5 h-5 text-primary-600 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
-                  And more
-                </li>
+              <ul className="space-y-4">
+                {targetMarkets.map((market, index) => (
+                  <motion.li
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                    className="flex items-center text-gray-300 text-lg"
+                  >
+                    <span className="w-2 h-2 bg-gradient-to-r from-primary-500 to-primary-700 rounded-full mr-4" />
+                    {market}
+                  </motion.li>
+                ))}
               </ul>
-            </div>
-            <div className="bg-black rounded-lg p-8 shadow-lg border border-secondary-800">
-              <div className="text-center mb-6">
-                <h3 className="text-2xl font-bold text-white mb-2">Ready to Scale?</h3>
-                <p className="text-gray-300">Get a free business diagnosis and customized growth plan</p>
+            </motion.div>
+
+            <AnimatedCard delay={0.3}>
+              <div className="text-center">
+                <h3 className="text-3xl font-bold text-white mb-6">Ready to Scale?</h3>
+                <p className="text-gray-400 mb-8">Get a free business diagnosis and customized growth plan</p>
+
+                <div className="space-y-6">
+                  {[
+                    { step: 1, text: 'Free consultation' },
+                    { step: 2, text: 'Business diagnosis' },
+                    { step: 3, text: 'Customized proposal' }
+                  ].map((item) => (
+                    <motion.div
+                      key={item.step}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: item.step * 0.1 }}
+                      className="flex items-center justify-center space-x-4"
+                    >
+                      <span className="w-12 h-12 bg-gradient-to-br from-primary-600 to-primary-800 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-primary-600/30">
+                        {item.step}
+                      </span>
+                      <span className="text-gray-300 text-lg">{item.text}</span>
+                    </motion.div>
+                  ))}
+                </div>
               </div>
-              <div className="space-y-4 text-center">
-                <div className="flex items-center justify-center space-x-2">
-                  <span className="bg-primary-900 text-primary-600 px-3 py-1 rounded-full text-sm font-medium">Step 1</span>
-                  <span className="text-gray-300">Free consultation</span>
-                </div>
-                <div className="flex items-center justify-center space-x-2">
-                  <span className="bg-primary-900 text-primary-600 px-3 py-1 rounded-full text-sm font-medium">Step 2</span>
-                  <span className="text-gray-300">Business diagnosis</span>
-                </div>
-                <div className="flex items-center justify-center space-x-2">
-                  <span className="bg-primary-900 text-primary-600 px-3 py-1 rounded-full text-sm font-medium">Step 3</span>
-                  <span className="text-gray-300">Customized proposal</span>
-                </div>
-              </div>
-            </div>
+            </AnimatedCard>
           </div>
         </div>
       </section>
 
-      <section className="py-20 bg-black">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Ready to Grow Smarter?
-          </h2>
-          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Join successful service businesses that have transformed their growth with our proven systems
-          </p>
-          <a href="https://calendly.com/tyler-tjltraining/15minutecall" target="_blank" rel="noopener noreferrer" className="inline-block bg-primary-600 text-white px-8 py-3 rounded-lg hover:bg-primary-700 transition-colors font-semibold">
-            Schedule Free Consultation
-          </a>
+      {/* CTA Section */}
+      <section className="py-24 bg-gradient-to-br from-secondary-950 to-black relative overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary-600/20 rounded-full blur-3xl animate-glow" />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              Ready to Grow <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-primary-700">Smarter?</span>
+            </h2>
+            <p className="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
+              Join successful service businesses that have transformed their growth with our proven systems
+            </p>
+            <GradientButton href="https://calendly.com/tyler-tjltraining/15minutecall">
+              Schedule Free Consultation
+            </GradientButton>
+          </motion.div>
         </div>
       </section>
     </div>

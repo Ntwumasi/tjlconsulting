@@ -1,6 +1,10 @@
 'use client';
 
 import { useState, FormEvent } from 'react';
+import { motion } from 'framer-motion';
+import { SectionHeader } from '@/components/ui/section-header';
+import { AnimatedCard } from '@/components/ui/animated-card';
+import { GradientButton } from '@/components/ui/gradient-button';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -72,192 +76,211 @@ export default function Contact() {
     });
   };
 
+  const processSteps = [
+    { step: 1, text: 'Free consultation call' },
+    { step: 2, text: 'Comprehensive business diagnosis' },
+    { step: 3, text: 'Customized growth proposal' }
+  ];
+
   return (
-    <div className="bg-black py-24">
+    <div className="bg-black min-h-screen py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Get In <span className="text-primary-600">Touch</span>
-          </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Ready to transform your business? We&apos;d love to hear from you. Contact us today to discuss your project and see how we can help.
-          </p>
-        </div>
+        <SectionHeader
+          title="Get In Touch"
+          subtitle="Ready to transform your business? We'd love to hear from you. Contact us today to discuss your project and see how we can help."
+        />
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div>
-            <h2 className="text-2xl font-bold text-white mb-6">Send Us a Message</h2>
+          {/* Contact Form */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <AnimatedCard>
+              <h2 className="text-2xl font-bold text-white mb-6">Send Us a Message</h2>
 
-            {submitStatus.type && (
-              <div
-                className={`mb-6 p-4 rounded-lg ${
-                  submitStatus.type === 'success'
-                    ? 'bg-green-900/30 border border-green-600 text-green-200'
-                    : 'bg-red-900/30 border border-red-600 text-red-200'
-                }`}
-              >
-                {submitStatus.message}
-              </div>
-            )}
-
-            <form className="space-y-6" onSubmit={handleSubmit}>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="firstName" className="block text-sm font-medium text-gray-300 mb-2">
-                    First Name *
-                  </label>
-                  <input
-                    type="text"
-                    id="firstName"
-                    name="firstName"
-                    value={formData.firstName}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 bg-secondary-900 border border-secondary-800 text-white rounded-lg focus:ring-2 focus:ring-primary-600 focus:border-primary-600 outline-none transition-colors"
-                    placeholder="Your first name"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="lastName" className="block text-sm font-medium text-gray-300 mb-2">
-                    Last Name *
-                  </label>
-                  <input
-                    type="text"
-                    id="lastName"
-                    name="lastName"
-                    value={formData.lastName}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 bg-secondary-900 border border-secondary-800 text-white rounded-lg focus:ring-2 focus:ring-primary-600 focus:border-primary-600 outline-none transition-colors"
-                    placeholder="Your last name"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
-                  Email Address *
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 bg-secondary-900 border border-secondary-800 text-white rounded-lg focus:ring-2 focus:ring-primary-600 focus:border-primary-600 outline-none transition-colors"
-                  placeholder="your@email.com"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="company" className="block text-sm font-medium text-gray-300 mb-2">
-                  Company
-                </label>
-                <input
-                  type="text"
-                  id="company"
-                  name="company"
-                  value={formData.company}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 bg-secondary-900 border border-secondary-800 text-white rounded-lg focus:ring-2 focus:ring-primary-600 focus:border-primary-600 outline-none transition-colors"
-                  placeholder="Your company name"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-2">
-                  Service Interest
-                </label>
-                <select
-                  id="subject"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 bg-secondary-900 border border-secondary-800 text-white rounded-lg focus:ring-2 focus:ring-primary-600 focus:border-primary-600 outline-none transition-colors"
+              {submitStatus.type && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className={`mb-6 p-4 rounded-xl ${
+                    submitStatus.type === 'success'
+                      ? 'bg-green-900/30 border border-green-600/50 text-green-200'
+                      : 'bg-red-900/30 border border-red-600/50 text-red-200'
+                  }`}
                 >
-                  <option value="">Select a service</option>
-                  <option value="marketing">Marketing & Client Acquisition</option>
-                  <option value="revenue">Revenue Optimization</option>
-                  <option value="operations">Operations & Scaling</option>
-                  <option value="ai">AI & Tech Implementation</option>
-                  <option value="general">General Inquiry</option>
-                  <option value="other">Other</option>
-                </select>
-              </div>
+                  {submitStatus.message}
+                </motion.div>
+              )}
 
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
-                  Message *
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={6}
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 bg-secondary-900 border border-secondary-800 text-white rounded-lg focus:ring-2 focus:ring-primary-600 focus:border-primary-600 outline-none transition-colors resize-none"
-                  placeholder="Tell us about your project and how we can help..."
-                ></textarea>
-              </div>
+              <form className="space-y-6" onSubmit={handleSubmit}>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="firstName" className="block text-sm font-medium text-gray-300 mb-2">
+                      First Name *
+                    </label>
+                    <input
+                      type="text"
+                      id="firstName"
+                      name="firstName"
+                      value={formData.firstName}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 py-3 bg-secondary-900/50 border border-secondary-800 text-white rounded-xl focus:ring-2 focus:ring-primary-600 focus:border-primary-600 outline-none transition-all backdrop-blur-sm"
+                      placeholder="Your first name"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="lastName" className="block text-sm font-medium text-gray-300 mb-2">
+                      Last Name *
+                    </label>
+                    <input
+                      type="text"
+                      id="lastName"
+                      name="lastName"
+                      value={formData.lastName}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 py-3 bg-secondary-900/50 border border-secondary-800 text-white rounded-xl focus:ring-2 focus:ring-primary-600 focus:border-primary-600 outline-none transition-all backdrop-blur-sm"
+                      placeholder="Your last name"
+                    />
+                  </div>
+                </div>
 
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full bg-primary-600 text-white px-8 py-3 rounded-lg hover:bg-primary-700 transition-colors font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {isSubmitting ? 'Sending...' : 'Send Message'}
-              </button>
-            </form>
-          </div>
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                    Email Address *
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 bg-secondary-900/50 border border-secondary-800 text-white rounded-xl focus:ring-2 focus:ring-primary-600 focus:border-primary-600 outline-none transition-all backdrop-blur-sm"
+                    placeholder="your@email.com"
+                  />
+                </div>
 
+                <div>
+                  <label htmlFor="company" className="block text-sm font-medium text-gray-300 mb-2">
+                    Company
+                  </label>
+                  <input
+                    type="text"
+                    id="company"
+                    name="company"
+                    value={formData.company}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 bg-secondary-900/50 border border-secondary-800 text-white rounded-xl focus:ring-2 focus:ring-primary-600 focus:border-primary-600 outline-none transition-all backdrop-blur-sm"
+                    placeholder="Your company name"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-2">
+                    Service Interest
+                  </label>
+                  <select
+                    id="subject"
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 bg-secondary-900/50 border border-secondary-800 text-white rounded-xl focus:ring-2 focus:ring-primary-600 focus:border-primary-600 outline-none transition-all backdrop-blur-sm"
+                  >
+                    <option value="">Select a service</option>
+                    <option value="marketing">Marketing & Client Acquisition</option>
+                    <option value="revenue">Revenue Optimization</option>
+                    <option value="operations">Operations & Scaling</option>
+                    <option value="ai">AI & Tech Implementation</option>
+                    <option value="general">General Inquiry</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+                    Message *
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows={6}
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 bg-secondary-900/50 border border-secondary-800 text-white rounded-xl focus:ring-2 focus:ring-primary-600 focus:border-primary-600 outline-none transition-all resize-none backdrop-blur-sm"
+                    placeholder="Tell us about your project and how we can help..."
+                  ></textarea>
+                </div>
+
+                <motion.button
+                  type="submit"
+                  disabled={isSubmitting}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="w-full bg-gradient-to-r from-primary-600 via-primary-700 to-primary-800 text-white px-8 py-4 rounded-xl hover:shadow-2xl hover:shadow-primary-600/50 transition-all font-semibold disabled:opacity-50 disabled:cursor-not-allowed relative overflow-hidden group"
+                >
+                  <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                  <span className="relative">{isSubmitting ? 'Sending...' : 'Send Message'}</span>
+                </motion.button>
+              </form>
+            </AnimatedCard>
+          </motion.div>
+
+          {/* Sidebar */}
           <div className="space-y-6">
-            <div className="bg-gradient-to-br from-secondary-900 to-black rounded-lg p-6 md:p-8 border border-secondary-800">
+            <AnimatedCard delay={0.2}>
               <h3 className="text-2xl font-bold text-white mb-6">Get Started Today</h3>
 
-              <div className="space-y-6">
-                <div className="text-center mb-6">
-                  <h4 className="text-lg font-semibold text-white mb-4">Our Process</h4>
-                  <div className="space-y-4">
-                    <div className="flex items-center space-x-3">
-                      <span className="bg-primary-600 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium flex-shrink-0">1</span>
-                      <span className="text-gray-300 text-left">Free consultation call</span>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <span className="bg-primary-600 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium flex-shrink-0">2</span>
-                      <span className="text-gray-300 text-left">Comprehensive business diagnosis</span>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <span className="bg-primary-600 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium flex-shrink-0">3</span>
-                      <span className="text-gray-300 text-left">Customized growth proposal</span>
-                    </div>
-                  </div>
+              <div className="mb-8">
+                <h4 className="text-lg font-semibold text-white mb-6 text-center">Our Process</h4>
+                <div className="space-y-4">
+                  {processSteps.map((item) => (
+                    <motion.div
+                      key={item.step}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: item.step * 0.1 }}
+                      className="flex items-center space-x-4"
+                    >
+                      <span className="w-10 h-10 bg-gradient-to-br from-primary-600 to-primary-800 text-white rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0 shadow-lg shadow-primary-600/30">
+                        {item.step}
+                      </span>
+                      <span className="text-gray-300">{item.text}</span>
+                    </motion.div>
+                  ))}
                 </div>
+              </div>
 
-                <div className="bg-black rounded-lg p-6 border border-secondary-800">
-                  <div className="flex items-start">
-                    <svg className="w-5 h-5 text-primary-600 mr-3 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    <div>
-                      <h5 className="font-semibold text-white text-sm mb-2">Who We Serve</h5>
-                      <p className="text-gray-300 text-sm">Service businesses ready to scale: law firms, medical practices, fitness centers, real estate agencies, and consulting firms.</p>
-                    </div>
+              <div className="bg-black/50 rounded-xl p-6 border border-secondary-800/50">
+                <div className="flex items-start">
+                  <svg className="w-5 h-5 text-primary-600 mr-3 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <div>
+                    <h5 className="font-semibold text-white text-sm mb-2">Who We Serve</h5>
+                    <p className="text-gray-400 text-sm">Service businesses ready to scale: law firms, medical practices, fitness centers, real estate agencies, and consulting firms.</p>
                   </div>
                 </div>
               </div>
-            </div>
+            </AnimatedCard>
 
-            <div className="bg-primary-600 text-white rounded-lg p-6 md:p-8 text-center">
-              <h4 className="text-xl font-semibold mb-2">Ready to Grow Smarter?</h4>
-              <p className="text-primary-100 text-sm mb-6">
+            <AnimatedCard delay={0.4} className="bg-gradient-to-br from-primary-600/10 to-primary-800/10 text-center">
+              <h4 className="text-xl font-semibold text-white mb-2">Ready to Grow Smarter?</h4>
+              <p className="text-gray-400 text-sm mb-6">
                 We typically respond within 24 hours with next steps for your free consultation.
               </p>
-              <a href="https://calendly.com/tyler-tjltraining/15minutecall" target="_blank" rel="noopener noreferrer" className="inline-block bg-white text-primary-600 px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors font-semibold w-full">
+              <GradientButton
+                href="https://calendly.com/tyler-tjltraining/15minutecall"
+                className="w-full"
+              >
                 Schedule a Call
-              </a>
-            </div>
+              </GradientButton>
+            </AnimatedCard>
           </div>
         </div>
       </div>
