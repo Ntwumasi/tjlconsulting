@@ -27,8 +27,8 @@ export async function POST(request: NextRequest) {
 
     // Send email using Resend
     const data = await resend.emails.send({
-      from: 'TJL Consulting Contact Form <onboarding@resend.dev>', // You'll need to update this with your verified domain
-      to: process.env.CONTACT_EMAIL || 'your-email@example.com', // Set this in your .env.local
+      from: 'TJL Consulting Contact Form <noreply@tjlbusiness.com>',
+      to: process.env.CONTACT_EMAIL || 'Tyler@tjlbusiness.com',
       replyTo: email,
       subject: `New Contact Form Submission: ${subject || 'General Inquiry'}`,
       html: `
