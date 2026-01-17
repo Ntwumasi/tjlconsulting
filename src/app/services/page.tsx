@@ -140,7 +140,7 @@ export default function Services() {
             <p className="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
               Our proven systems help service businesses attract more clients, increase revenue, and scale efficiently.
             </p>
-            <GradientButton href="https://calendly.com/tyler-tjltraining/15minutecall">
+            <GradientButton href="https://calendly.com/tyler-tjlbusiness/15minutecall">
               Schedule Free Consultation
             </GradientButton>
           </AnimatedCard>

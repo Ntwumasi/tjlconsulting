@@ -184,7 +184,7 @@ export default function About() {
             <p className="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
               Join successful service businesses that have transformed their growth with our proven systems and strategies.
             </p>
-            <GradientButton href="https://calendly.com/tyler-tjltraining/15minutecall">
+            <GradientButton href="https://calendly.com/tyler-tjlbusiness/15minutecall">
               Schedule Free Consultation
             </GradientButton>
           </AnimatedCard>

@@ -275,7 +275,7 @@ export default function Contact() {
                 We typically respond within 24 hours with next steps for your free consultation.
               </p>
               <GradientButton
-                href="https://calendly.com/tyler-tjltraining/15minutecall"
+                href="https://calendly.com/tyler-tjlbusiness/15minutecall"
                 className="w-full"
               >
                 Schedule a Call

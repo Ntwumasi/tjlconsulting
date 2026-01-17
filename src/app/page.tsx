@@ -98,7 +98,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              <GradientButton href="https://calendly.com/tyler-tjltraining/15minutecall">
+              <GradientButton href="https://calendly.com/tyler-tjlbusiness/15minutecall">
                 Get Free Consultation
               </GradientButton>
             </motion.div>
@@ -213,7 +213,7 @@ export default function Home() {
             <p className="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
               Join successful service businesses that have transformed their growth with our proven systems
             </p>
-            <GradientButton href="https://calendly.com/tyler-tjltraining/15minutecall">
+            <GradientButton href="https://calendly.com/tyler-tjlbusiness/15minutecall">
               Schedule Free Consultation
             </GradientButton>
           </motion.div>
