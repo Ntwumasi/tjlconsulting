@@ -269,7 +269,7 @@ export default function WebinarPage() {
 
         <div className="w-bottom-cta">
           <h2>Ready to Build This<br/>For Your Business?</h2>
-          <p>Watch the free webinar, then book a 15-minute AI Audit and we&apos;ll show you exactly where to start.</p>
+          <p>Watch the free webinar and we&apos;ll show you exactly where to start.</p>
           <a href="#register" className="w-btn-large">Watch the Free Webinar →</a>
         </div>
 
