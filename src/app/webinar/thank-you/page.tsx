@@ -142,7 +142,7 @@ export default function WebinarThankYouPage() {
       <div className="ty-body">
         <nav className="ty-nav">
           <Link href="/" className="ty-nav-logo">TJL Consulting</Link>
-          <a href="https://tjlbusiness.com/audit" className="ty-nav-link">Book a Free AI Audit →</a>
+          <a href="https://calendly.com/tyler-tjlbusiness/15minutecall" className="ty-nav-link">Book a Free AI Audit →</a>
         </nav>
 
         <div className="ty-page-header">
@@ -223,7 +223,7 @@ export default function WebinarThankYouPage() {
               <h2>Want Us to Build This for You?</h2>
               <p>Book a free 15-minute AI Audit. We&apos;ll look at your business, identify exactly where you&apos;re losing time and money, and show you what we&apos;d automate first — no obligation.</p>
             </div>
-            <a href="https://tjlbusiness.com/audit" className="ty-btn-cta">Book Free AI Audit →</a>
+            <a href="https://calendly.com/tyler-tjlbusiness/15minutecall" className="ty-btn-cta">Book Free AI Audit →</a>
           </div>
         </div>
 
