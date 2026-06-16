@@ -266,23 +266,6 @@ export default function WebinarPage() {
           </div>
         </div>
 
-        <div className="w-about-section">
-          <div className="w-about-inner">
-            <div className="w-about-text">
-              <div className="w-section-label">Real Results</div>
-              <h2>Built for a Real Business. Not a Demo.</h2>
-              <p>We built this system for Tyler&apos;s pressure washing business in Massachusetts. He was spending over $3,000/month on content and marketing. We replaced it with AI tools that cost $120/month.</p>
-              <p>The webinar walks you through every step — from the first automation to the finished system posting content across every platform daily.</p>
-            </div>
-            <div className="w-result-box">
-              <div className="result-label">Before vs. After</div>
-              <div className="w-result-row"><span className="metric">Monthly content cost</span><span className="value red">$3,200 → $120</span></div>
-              <div className="w-result-row"><span className="metric">Hours spent on content</span><span className="value">12 hrs → 0 hrs</span></div>
-              <div className="w-result-row"><span className="metric">Platforms posted to</span><span className="value">1 → 5</span></div>
-              <div className="w-result-row"><span className="metric">Time to build</span><span className="value">1 weekend</span></div>
-            </div>
-          </div>
-        </div>
 
         <div className="w-bottom-cta">
           <h2>Ready to Build This<br/>For Your Business?</h2>
