@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Free Webinar — Replacing a Social Media Hire with AI | TJL Consulting',
@@ -180,7 +181,7 @@ export default function WebinarPage() {
 
       <div className="webinar-body">
         <nav className="w-nav">
-          <a href="/" className="w-nav-logo">TJL Consulting</a>
+          <Link href="/" className="w-nav-logo">TJL Consulting</Link>
           <a href="#register" className="w-nav-cta">Watch Free Webinar</a>
         </nav>
 

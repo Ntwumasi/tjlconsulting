@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Watch Your Webinar — TJL Consulting',
@@ -140,7 +141,7 @@ export default function WebinarThankYouPage() {
 
       <div className="ty-body">
         <nav className="ty-nav">
-          <a href="/" className="ty-nav-logo">TJL Consulting</a>
+          <Link href="/" className="ty-nav-logo">TJL Consulting</Link>
           <a href="https://tjlbusiness.com/audit" className="ty-nav-link">Book a Free AI Audit →</a>
         </nav>
 
