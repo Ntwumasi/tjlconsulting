@@ -155,7 +155,7 @@ export default function WebinarThankYouPage() {
           <div className="ty-video-outer">
             <div className="ty-video-ratio">
               <iframe
-                src="https://www.youtube.com/embed/Sdmp_fWnB4w?rel=0"
+                src="https://www.youtube.com/embed/SUq2mt_XNkE?rel=0"
                 title="Replacing a Social Media Hire with AI — TJL Consulting Webinar"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
