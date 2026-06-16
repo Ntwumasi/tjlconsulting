@@ -207,12 +207,18 @@ export default function WebinarPage() {
                   <label>What type of business do you run?</label>
                   <select name="business" required>
                     <option value="" disabled>Select your industry</option>
-                    <option value="Pressure Washing">Pressure Washing</option>
-                    <option value="House Cleaning">House Cleaning</option>
-                    <option value="Lawn Care / Landscaping">Lawn Care / Landscaping</option>
-                    <option value="HVAC">HVAC</option>
-                    <option value="Painting">Painting</option>
-                    <option value="Other Home Service">Other Home Service</option>
+                    <option value="Home Services">Home Services</option>
+                    <option value="Marketing / Advertising">Marketing / Advertising</option>
+                    <option value="Financial Services">Financial Services</option>
+                    <option value="Consulting">Consulting</option>
+                    <option value="Healthcare">Healthcare</option>
+                    <option value="Fitness / Wellness">Fitness / Wellness</option>
+                    <option value="Real Estate">Real Estate</option>
+                    <option value="Legal Services">Legal Services</option>
+                    <option value="E-commerce / Retail">E-commerce / Retail</option>
+                    <option value="Restaurant / Food & Beverage">Restaurant / Food &amp; Beverage</option>
+                    <option value="Education / Coaching">Education / Coaching</option>
+                    <option value="Technology / SaaS">Technology / SaaS</option>
                     <option value="Other">Other</option>
                   </select>
                 </div>
