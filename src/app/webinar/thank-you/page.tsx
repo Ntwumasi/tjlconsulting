@@ -171,51 +171,6 @@ export default function WebinarThankYouPage() {
           </div>
         </div>
 
-        <div className="ty-chapters-section">
-          <div className="ty-chapters-label">What&apos;s Covered</div>
-          <div className="ty-chapter-list">
-            <div className="ty-chapter-item">
-              <div className="ty-chapter-num">01</div>
-              <div className="ty-chapter-info">
-                <div className="ch-title">The Real Cost of a Social Media Hire</div>
-                <div className="ch-desc">Why $2,000–$4,000/month is the real number most owners don&apos;t calculate</div>
-              </div>
-              <span className="ty-chapter-time">0:00</span>
-            </div>
-            <div className="ty-chapter-item">
-              <div className="ty-chapter-num">02</div>
-              <div className="ty-chapter-info">
-                <div className="ch-title">The 5-Stage AI Content System</div>
-                <div className="ch-desc">Research → Ideation → Scripting → Creation → Cross-posting</div>
-              </div>
-              <span className="ty-chapter-time">8:30</span>
-            </div>
-            <div className="ty-chapter-item">
-              <div className="ty-chapter-num">03</div>
-              <div className="ty-chapter-info">
-                <div className="ch-title">The Exact Tool Stack ($120/month)</div>
-                <div className="ch-desc">Every tool, what it costs, and why we chose it</div>
-              </div>
-              <span className="ty-chapter-time">19:45</span>
-            </div>
-            <div className="ty-chapter-item">
-              <div className="ty-chapter-num">04</div>
-              <div className="ty-chapter-info">
-                <div className="ch-title">The One Trap That Makes AI Sound Robotic</div>
-                <div className="ch-desc">The fix that makes your content sound human every time</div>
-              </div>
-              <span className="ty-chapter-time">32:10</span>
-            </div>
-            <div className="ty-chapter-item">
-              <div className="ty-chapter-num">05</div>
-              <div className="ty-chapter-info">
-                <div className="ch-title">Next Steps — Building This for Your Business</div>
-                <div className="ch-desc">How to get started and what to do after the webinar</div>
-              </div>
-              <span className="ty-chapter-time">40:00</span>
-            </div>
-          </div>
-        </div>
 
         <div className="ty-cta-section">
           <div className="ty-cta-inner">
