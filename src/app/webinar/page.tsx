@@ -1,13 +1,30 @@
-import type { Metadata } from 'next'
+'use client'
 import Link from 'next/link'
-
-export const metadata: Metadata = {
-  title: 'Free Webinar — Replacing a Social Media Hire with AI | TJL Consulting',
-  description:
-    'Watch how we replaced a $3,200/month social media hire with a $120/month AI system — built for a real local service business in one weekend.',
-}
+import { useRouter } from 'next/navigation'
+import { useState } from 'react'
 
 export default function WebinarPage() {
+  const router = useRouter()
+  const [loading, setLoading] = useState(false)
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    setLoading(true)
+    const form = e.currentTarget
+    const data = new FormData(form)
+    const params = new URLSearchParams()
+    params.append('firstName', data.get('name') as string)
+    params.append('email', data.get('email') as string)
+    params.append('business', data.get('business') as string)
+    try {
+      await fetch(
+        'https://script.google.com/macros/s/AKfycbyYf3SakpcoT5IEah9ozDuPuBlLfF7tV_48FJk0PJmh_Apwxx0FPqJkcAnD27DX_5GP/exec',
+        { method: 'POST', body: params, mode: 'no-cors' }
+      )
+    } catch (_) {}
+    router.push('/webinar/thank-you')
+  }
+
   return (
     <>
       <style>{`
@@ -194,7 +211,7 @@ export default function WebinarPage() {
             <div className="w-form-card" id="register">
               <h2>Get Instant Access</h2>
               <p>Free · No credit card · Watch immediately</p>
-              <form action="/webinar/thank-you" method="get">
+              <form onSubmit={handleSubmit}>
                 <div className="w-form-group">
                   <label>First Name</label>
                   <input type="text" name="name" placeholder="John" required />
@@ -222,7 +239,7 @@ export default function WebinarPage() {
                     <option value="Other">Other</option>
                   </select>
                 </div>
-                <button type="submit" className="w-btn-submit">Watch the Free Webinar →</button>
+                <button type="submit" className="w-btn-submit" disabled={loading}>{loading ? 'Sending...' : 'Watch the Free Webinar →'}</button>
               </form>
               <p className="w-form-note">No spam, ever. Unsubscribe anytime.</p>
             </div>
